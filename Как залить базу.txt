@@ -1,0 +1,21 @@
+Как сделать
+C:\xampp\mysql\bin\mysqldump.exe -uroot vesna-15-yii2 > 'C:\Полный_путь_к_файлу_в_который_сохранить.sql'
+
+
+-----------------------------------------
+
+
+0) Скопировать из сетевой папки дамп базы "vesna-15-yii2.sql" и запомнить куда скопировали, понадобится в последнем шаге
+
+1) C:\xampp\mysql\bin\mysql.exe -uroot
+
+2) Пересоздаем базу
+DROP DATABASE `vesna-15-yii2`;
+CREATE DATABASE `vesna-15-yii2` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+3) выходим из mysql
+exit;
+
+4) Заливаем дамп
+C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "Полный путь к дампу.sql"
+ C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "c:\xampp\htdocs\advanced\vesna-15-yii2.sql"

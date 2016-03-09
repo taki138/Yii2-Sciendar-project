@@ -1,0 +1,18 @@
+   ☐ Сделать проект работоспособным @critical @due(2-3)
+   ☐ Установить роли пользователям
+   ☐ Сделать "события"
+   ☐ Седалть вывод и отображенеи событий
+   ☐
+   ☐
+   ☐
+   ☐
+   ☐
+   http://localhost/admin/
+   Файлы с описанием User
+C:\xampp\htdocs\advanced\backend\views\article\_form.php
+C:\xampp\htdocs\advanced\backend\views\user\_form.php
+C:\xampp\htdocs\advanced\backend\views\user\index.php
+C:\xampp\htdocs\advanced\common\models\Article.php
+C:\xampp\htdocs\advanced\common\models\User.php
+C:\xampp\htdocs\advanced\frontend\models\PasswordResetRequestForm.php
+
