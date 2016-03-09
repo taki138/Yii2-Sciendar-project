@@ -114,16 +114,21 @@ class Article extends ActiveRecord
      */
     public function generatePreviewImageName($ext)
     {
-        if ($this->preview_image) return $this->preview_image;
+        if ( empty($ext) ) {
+            $name = NULL;
+            return $name;
+        } else {
+            if ($this->preview_image) return $this->preview_image;
 
-        do // generate unique name
-        {
-            $name = Yii::$app->getSecurity()
-                             ->generateRandomString(30) . ".$ext";
-        } while (static::findOne(['preview_image' => $name])); // if exists - regenerate
+            do // generate unique name
+            {
+                $name = Yii::$app->getSecurity()
+                                 ->generateRandomString(30) . ".$ext";
+            } while (static::findOne(['preview_image' => $name])); // if exists - regenerate
 
-        $this->preview_image = $name;
-        return $name;
+            $this->preview_image = $name;
+            return $name;
+        }
     } // end generateName()
 
     /**

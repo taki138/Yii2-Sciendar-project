@@ -42,6 +42,7 @@ $attributes = [
     ],
 ];
 ?>
+
 <div class="article-view">
 
     <p>

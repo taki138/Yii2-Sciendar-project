@@ -31,9 +31,9 @@ class ArticleCreate extends Model
             [
                 ['previewImageFile'],
                 'image',
-                'skipOnEmpty' => false,
+                'skipOnEmpty' => true,
 //                'maxSize'     => 1024 * 600, // 600KB
-//                'maxFiles'    => 5,
+                // 'maxFiles'    => 1,
                 'mimeTypes'   => ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'],
                 'extensions'  => ['jpg', 'jpeg', 'gif', 'png'],
 //                'minWidth'    => 300,
@@ -66,7 +66,7 @@ class ArticleCreate extends Model
         $article->preview_text = $this->preview_text;
         $article->status       = $this->status;
         $article->user_id      = Yii::$app->user->id;
-        $article->generatePreviewImageName($this->previewImageFile->extension);
+        /*$article->generatePreviewImageName($this->previewImageFile->extension);*/
 
         $transaction = Yii::$app->db->beginTransaction();
 
@@ -75,12 +75,20 @@ class ArticleCreate extends Model
             throw new ServerErrorHttpException('Can not create article for unknown reason');
         }
 
-        if ( ! $this->previewImageFile->saveAs($article->getPreviewImagePath(false), true) ) {
-            $transaction->rollBack();
-            throw new ServerErrorHttpException('Can not upload preview image for unknown reason');
-        }
+        if ( empty($this->previewImageFile->extension) ) {
 
-        $transaction->commit();
-        return $article;
+            $transaction->commit();
+            return $article;
+
+        } else {
+
+            if ( ! $this->previewImageFile->saveAs($article->getPreviewImagePath(false), true) ) {
+                $transaction->rollBack();
+                throw new ServerErrorHttpException('Can not upload preview image for unknown reason');
+            }
+
+            $transaction->commit();
+            return $article;
+        }
     }
 }
