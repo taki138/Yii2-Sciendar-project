@@ -34,8 +34,8 @@ class ArticleCreate extends Model
                 'skipOnEmpty' => false,
 //                'maxSize'     => 1024 * 600, // 600KB
 //                'maxFiles'    => 5,
-                'mimeTypes'   => ['image/jpg', 'image/jpeg', 'image/gif'],
-                'extensions'  => ['jpg', 'jpeg', 'gif'],
+                'mimeTypes'   => ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'],
+                'extensions'  => ['jpg', 'jpeg', 'gif', 'png'],
 //                'minWidth'    => 300,
 //                'maxWidth'    => 2000,
 //                'minHeight'   => 300,

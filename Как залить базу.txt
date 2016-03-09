@@ -18,4 +18,6 @@ exit;
 
 4) Заливаем дамп
 C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "Полный путь к дампу.sql"
- C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "c:\xampp\htdocs\advanced\vesna-15-yii2.sql"
+C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "c:\xampp\htdocs\advanced\vesna-15-yii2.sql"
+
+C:\xampp\mysql\bin\mysql.exe -uroot vesna-15-yii2 < "c:\xampp\htdocs\advanced\db_18.20_09.03.2016.sql"
