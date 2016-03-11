@@ -66,7 +66,14 @@ class ArticleCreate extends Model
         $article->preview_text = $this->preview_text;
         $article->status       = $this->status;
         $article->user_id      = Yii::$app->user->id;
-        /*$article->generatePreviewImageName($this->previewImageFile->extension);*/
+        // $article->preview_image = null;
+        // $article->generatePreviewImageName($this->previewImageFile->extension);
+
+            if ( empty($this->previewImageFile->extension) ) {
+                $article->preview_image = null;
+            } else {
+               $article->generatePreviewImageName($this->previewImageFile->extension);
+            }
 
         $transaction = Yii::$app->db->beginTransaction();
 

@@ -114,10 +114,6 @@ class Article extends ActiveRecord
      */
     public function generatePreviewImageName($ext)
     {
-        if ( empty($ext) ) {
-            $name = NULL;
-            return $name;
-        } else {
             if ($this->preview_image) return $this->preview_image;
 
             do // generate unique name
@@ -128,7 +124,6 @@ class Article extends ActiveRecord
 
             $this->preview_image = $name;
             return $name;
-        }
     } // end generateName()
 
     /**
