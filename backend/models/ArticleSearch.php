@@ -21,8 +21,8 @@ class ArticleSearch extends Article
             [['id', 'created_at', 'updated_at'], 'integer'],
             [['title', 'userEmailFilter', 'description'], 'safe'],
 
-            ['createdAtFilter', 'date', 'format' => 'php:Y-m-d', 'timestampAttribute' => 'created_at'],
-            ['updatedAtFilter', 'date', 'format' => 'php:Y-m-d', 'timestampAttribute' => 'updated_at'],
+            ['createdAtFilter', 'date', 'format' => 'php:d-m-Y', 'timestampAttribute' => 'created_at'],
+            ['updatedAtFilter', 'date', 'format' => 'php:d-m-Y', 'timestampAttribute' => 'updated_at'],
         ];
     }
 
@@ -55,6 +55,7 @@ class ArticleSearch extends Article
         $dataProvider->setSort(['attributes' => [
             'id',
             'title',
+            'description',
             'createdAtFilter' => [
                 'asc'  => ['article.created_at' => SORT_ASC],
                 'desc' => ['article.created_at' => SORT_DESC],
@@ -75,10 +76,14 @@ class ArticleSearch extends Article
             return $dataProvider;
         }
 
-        $query->andFilterWhere([
-            'id'      => $this->id,
-            'user_id' => $this->user_id,
-        ]);
+        $query
+            ->andFilterWhere([
+            // 'id'      => $this->id,
+            // 'user_id' => $this->user_id,
+            'like', 'article.id', $this->id.'%', false
+        ])
+            ->andFilterWhere(['user_id' => $this->user_id])
+        ;
 
         // фильтр по дате создания
         if ($this->created_at) {
@@ -97,9 +102,9 @@ class ArticleSearch extends Article
         }
 
         $query
-            ->andFilterWhere(['like', 'title', $this->title.'%', false])
-            ->andFilterWhere(['like', 'description', $this->description.'%', false])
-            ->andFilterWhere(['like', 'user.email', $this->userEmailFilter.'%', false])
+            ->andFilterWhere(['like', 'title', '%'.$this->title.'%', false])
+            ->andFilterWhere(['like', 'description', '%'.$this->description.'%', false])
+            ->andFilterWhere(['like', 'user.email', '%'.$this->userEmailFilter.'%', false])
         ;
 
         return $dataProvider;

@@ -133,4 +133,14 @@ class Article extends ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+    public function getCreatedAtFormat()
+    {
+        return date('h:m:s d.m.Y', $this->created_at);
+    }
+
+    public function getUpdatedAtFormat()
+    {
+        return date('h:m:s d.m.Y', $this->updated_at);
+    }
 }

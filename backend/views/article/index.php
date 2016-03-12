@@ -16,13 +16,13 @@ $columns = [
     [
         'attribute' => 'createdAtFilter',
         'value'     => 'created_at',
-        'format'    => ['date', 'php:Y-m-d'],
+        'format'    => ['date', 'php: h:m:s d.m.Y'],
 
         'width'               => '200px',
         'filterType'          => GridView::FILTER_DATE,
         'filterWidgetOptions' => [
             'pluginOptions' => [
-                'format'         => 'yyyy-mm-dd',
+                'format'         => 'dd-mm-yyyy',
                 'autoclose'      => true,
                 'todayHighlight' => true,
             ],
@@ -31,13 +31,13 @@ $columns = [
     [
         'attribute' => 'updatedAtFilter',
         'value'     => 'updated_at',
-        'format'    => ['date', 'php:Y-m-d'],
+        'format'    => ['date', 'php: h:m:s d.m.Y'],
 
         'width'               => '200px',
         'filterType'          => GridView::FILTER_DATE,
         'filterWidgetOptions' => [
             'pluginOptions' => [
-                'format'         => 'yyyy-mm-dd',
+                'format'         => 'dd-mm-yyyy',
                 'autoclose'      => true,
                 'todayHighlight' => true,
             ],

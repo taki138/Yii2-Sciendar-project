@@ -226,7 +226,7 @@ class User extends ActiveRecord implements IdentityInterface
             'createdAtFormat' => 'Дата создания',
         ];
     }
-        public function getUserStatus($model) {
+    public function getUserStatus($model) {
         switch ($model->status) {
             case $model::STATUS_ACTIVE: $status = 'active'; $class = 'success'; break;
             case $model::STATUS_DELETED: $status = 'deleted'; $class = 'danger'; break;

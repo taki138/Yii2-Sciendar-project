@@ -15,11 +15,14 @@ $attributes = [
     'id',
     [
         'attribute' => 'created_at',
-        'format' => ['date', 'php:Y-m-d'],
+        /*'format' => ['date', 'php:Y-m-d'],*/
+        'value'=> $model->getCreatedAtFormat($model),
+        'format' => 'raw',
     ],
     [
         'attribute' => 'updated_at',
-        'format' => ['date', 'php:Y-m-d'],
+        'value'=> $model->getUpdatedAtFormat($model),
+        'format' => 'raw',
     ],
     [
         'attribute' => 'user_id',
