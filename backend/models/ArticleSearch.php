@@ -88,16 +88,16 @@ class ArticleSearch extends Article
         // фильтр по дате создания
         if ($this->created_at) {
             $query->andWhere(['and',
-                ['>', 'created_at', $this->created_at],
-                ['<=', 'created_at', $this->created_at + 60 * 60 * 24],
+                ['>', 'article.created_at', $this->created_at],
+                ['<=', 'article.created_at', $this->created_at + 60 * 60 * 24],
             ]);
         }
 
         // Фильтр по дате сортировки
         if ($this->updated_at) {
             $query->andWhere(['and',
-                ['>', 'updated_at', $this->updated_at],
-                ['<=', 'updated_at', $this->updated_at + 60 * 60 * 24],
+                ['>', 'article.updated_at', $this->updated_at],
+                ['<=', 'article.updated_at', $this->updated_at + 60 * 60 * 24],
             ]);
         }
 
