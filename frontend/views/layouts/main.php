@@ -35,8 +35,8 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Feedback', 'url' => ['/feedback']],
         ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Feedback', 'url' => ['/site/feedback']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];

@@ -13,7 +13,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
-use frontend\models\Feedback;
+use common\models\Feedback;
 
 /**
  * Site controller
@@ -26,7 +26,7 @@ class SiteController extends Controller
         // $feed = Feedback::find()->where(['id' => 2])->one();
         // $feed = Feedback::findOne(['id' => 2]);
         // $feed = Feedback::findOne(2);
-        
+
         // $res = $feed->text;
         // $res = $feed->toArray();
 
@@ -46,7 +46,7 @@ class SiteController extends Controller
         // $res = $all;
         $res = '';
         */
-        
+
         /*
         // Обновить
         $feed = Feedback::findOne(2);

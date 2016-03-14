@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     return '<span class="label label-'.$class.'">'.$status.'</span>';
                 },
+                'options' => ['width' => '120'],
             ],
             [
                 'class' => '\kartik\grid\DataColumn',
@@ -56,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterType' => GridView::FILTER_DATE,
                 'filterWidgetOptions' => [
                     'pluginOptions' => [
-                        'format'         => 'yyyy.mm.dd',
+                        'format'         => 'dd.mm.yyyy',
                         'autoclose'      => true,
                         'todayHighlight' => true,
                     ]
@@ -72,7 +73,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterType' => GridView::FILTER_DATE,
                 'filterWidgetOptions' => [
                     'pluginOptions' => [
-                        'format'         => 'yyyy.mm.dd',
+                        'format'         => 'dd.mm.yyyy',
                         'autoclose'      => true,
                         'todayHighlight' => true,
                     ]

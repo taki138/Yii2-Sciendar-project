@@ -20,7 +20,6 @@ class ArticleSearch extends Article
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
             [['title', 'userEmailFilter', 'description'], 'safe'],
-
             ['createdAtFilter', 'date', 'format' => 'php:d-m-Y', 'timestampAttribute' => 'created_at'],
             ['updatedAtFilter', 'date', 'format' => 'php:d-m-Y', 'timestampAttribute' => 'updated_at'],
         ];
