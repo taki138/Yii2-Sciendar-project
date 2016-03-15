@@ -6,8 +6,14 @@ use yii\helpers\ArrayHelper;
 
 class User extends _User
 {
-	public $createdAt;
-	public $updatedAt;
+	/**
+     * @var int
+     */
+    public $createdAtFilter;
+    /**
+     * @var int
+     */
+    public $updatedAtFilter;
 
 	public function rules()
 	{

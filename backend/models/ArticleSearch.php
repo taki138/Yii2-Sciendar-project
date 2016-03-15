@@ -4,7 +4,6 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-
 // use backend\models\Article;
 
 /**
@@ -55,7 +54,7 @@ class ArticleSearch extends Article
             'id',
             'title',
             'description',
-            'createdAtFilter' => [
+            'createdAt' => [
                 'asc'  => ['article.created_at' => SORT_ASC],
                 'desc' => ['article.created_at' => SORT_DESC],
             ],

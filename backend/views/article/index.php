@@ -17,7 +17,6 @@ $columns = [
         'attribute' => 'createdAtFilter',
         'value'     => 'created_at',
         'format'    => ['date', 'php: h:m:s d.m.Y'],
-
         'width'               => '200px',
         'filterType'          => GridView::FILTER_DATE,
         'filterWidgetOptions' => [
@@ -32,7 +31,6 @@ $columns = [
         'attribute' => 'updatedAtFilter',
         'value'     => 'updated_at',
         'format'    => ['date', 'php: h:m:s d.m.Y'],
-
         'width'               => '200px',
         'filterType'          => GridView::FILTER_DATE,
         'filterWidgetOptions' => [
@@ -67,12 +65,10 @@ $columns = [
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel'  => $searchModel,
-
         'pjax' => true,
-
         'panel' => [
             'type'    => GridView::TYPE_DEFAULT,
-            'heading' => 'Users',
+            'heading' => 'Articles',
             'before'  => Html::a('<i class="glyphicon glyphicon-plus"></i> Create an article', ['create'],
                 ['class' => 'btn btn-success']),
             'after'   => false,

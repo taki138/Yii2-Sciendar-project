@@ -1,5 +1,4 @@
 <?php
-
 use yii\helpers\Html;
 use kartik\grid\GridView;
 
@@ -9,31 +8,12 @@ use kartik\grid\GridView;
 
 $this->title = 'Users';
 $this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="user-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'export' => false,
-        'columns' => [
-            // ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            // 'auth_key',
-            // 'password_hash',
-            // 'password_reset_token',
-            'email:email:E-mail',
-            // 'status',
-            [
+    $columns = [
+    'id',
+    'username',
+    'email:email:E-mail',
+    [
                 'attribute' => 'status',
                 'format' => 'raw',
                 'value' => function($model) {
@@ -46,42 +26,54 @@ $this->params['breadcrumbs'][] = $this->title;
                     return '<span class="label label-'.$class.'">'.$status.'</span>';
                 },
                 'options' => ['width' => '120'],
+    ],
+    [
+        'attribute' => 'createdAtFilter',
+        'value'     => 'created_at',
+        'format'    => ['date', 'php: h:m:s d.m.Y'],
+        'width'               => '200px',
+        'filterType'          => GridView::FILTER_DATE,
+        'filterWidgetOptions' => [
+            'pluginOptions' => [
+                'format'         => 'dd-mm-yyyy',
+                'autoclose'      => true,
+                'todayHighlight' => true,
             ],
-            [
-                'class' => '\kartik\grid\DataColumn',
-                'attribute'=>'createdAt',
-                'value' => function ($model, $index, $widget) {
-                    return date('h:m:s d.m.Y', $model->created_at);
-                },
-                'width' => '200px',
-                'filterType' => GridView::FILTER_DATE,
-                'filterWidgetOptions' => [
-                    'pluginOptions' => [
-                        'format'         => 'dd.mm.yyyy',
-                        'autoclose'      => true,
-                        'todayHighlight' => true,
-                    ]
-                ],
-            ],
-            [
-                'class' => '\kartik\grid\DataColumn',
-                'attribute'=>'updatedAt',
-                'value' => function ($model, $index, $widget) {
-                    return date('h:m:s d.m.Y', $model->updated_at);
-                },
-                'width' => '200px',
-                'filterType' => GridView::FILTER_DATE,
-                'filterWidgetOptions' => [
-                    'pluginOptions' => [
-                        'format'         => 'dd.mm.yyyy',
-                        'autoclose'      => true,
-                        'todayHighlight' => true,
-                    ]
-                ],
-            ],
-
-            ['class' => 'kartik\grid\ActionColumn'],
         ],
+    ],
+    [
+        'attribute' => 'updatedAtFilter',
+        'value'     => 'updated_at',
+        'format'    => ['date', 'php: h:m:s d.m.Y'],
+        'width'               => '200px',
+        'filterType'          => GridView::FILTER_DATE,
+        'filterWidgetOptions' => [
+            'pluginOptions' => [
+                'format'         => 'dd-mm-yyyy',
+                'autoclose'      => true,
+                'todayHighlight' => true,
+            ],
+        ],
+    ],
+            ['class' => 'kartik\grid\ActionColumn'],
+    ];
+    ?>
+    <div class="user-index">
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel'  => $searchModel,
+        'pjax' => true,
+        'panel' => [
+            'type'    => GridView::TYPE_DEFAULT,
+            'heading' => 'Users',
+            'before'  => Html::a('<i class="glyphicon glyphicon-plus"></i> Create user', ['create'],
+                ['class' => 'btn btn-success']),
+            'after'   => false,
+        ],
+        'columns' => $columns,
     ]); ?>
+
+</div>
 
 </div>
