@@ -32,3 +32,11 @@ phpunit.phar
 *.sublime-*
 /*.rar
 /*.zip
+
+# my files
+todo.txt
+vesna-15-yii2.sql
+Как залить базу.txt
+dz.txt
+/todo
+/php-test
