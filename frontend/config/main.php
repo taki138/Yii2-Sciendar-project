@@ -19,6 +19,7 @@ return [
             'rules' => [
                 'feedback' => 'site/feedback',
                 '' => 'site/index',
+                'article' => 'site/article',
                 'site/<action:(contact|signup|login|about|logout)>' => 'site/<action>'
             ],
 

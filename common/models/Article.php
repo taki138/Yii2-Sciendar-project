@@ -4,6 +4,7 @@ namespace common\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use common\models\User;
 
 /**
  * This is the model class for table "article".

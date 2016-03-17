@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use common\models\Feedback;
+use common\models\Article;
 
 /**
  * Site controller
@@ -22,69 +23,16 @@ class SiteController extends Controller
 {
     public function actionTest()
     {
-        // получить одну
-        // $feed = Feedback::find()->where(['id' => 2])->one();
-        // $feed = Feedback::findOne(['id' => 2]);
-        // $feed = Feedback::findOne(2);
-
-        // $res = $feed->text;
-        // $res = $feed->toArray();
-
-
-
-
-/*
-        // получить все
-        $all = Feedback::find()->all();
-
-        $all = Feedback::find()->where(['created_at' < time() - 24*60*60])->all();
-        $all = Feedback::findAll(['created_at' < time() - 24*60*60]);
-
-        foreach ($all as $feed) {
-            echo "Feed({$feed->id}): {$feed->text}<br>";
-        }
-        // $res = $all;
-        $res = '';
-        */
-
-        /*
-        // Обновить
-        $feed = Feedback::findOne(2);
-        $feed->rating = 5;
-        $feed->text = '.....';
-        $feed->save();
-
-        $res = $feed->toArray();
-        */
-
-        /*
-        // создать
-        $feed = new Feedback();
-        $feed->rating = 3;
-        $feed->text = ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, voluptates!';
-        $feed->created_at = time() - 24*60*60;
-        $feed->save();
-
-        $res = $feed->toArray();
-        */
-
-
-        /*
-        // Удалить
-        $feed = Feedback::findOne(2);
-        $res = $feed->delete();
-        */
-
         return print_r($res, 1);
-        // $res = Yii::$app->db->createCommand("SELECT * FROM `feedback`")->queryAll();
-        // return $this->render('feedback', [
-        //     'res' => $res
-        // ]);
+    }
+
+    public function actionArticle()
+    {
+        return $this->render('article');
     }
 
     public function actionFeedback()
     {
-        // Yii::$app->createCommand('SELECT * FROM `feedback`')->queryAll();
         $feed = new Feedback();
 
         if ( $feed->load( Yii::$app->request->post() ) && $feed->validate() ) {
@@ -92,10 +40,6 @@ class SiteController extends Controller
             if ( ! Yii::$app->user->isGuest) {
                 $feed->user_id = Yii::$app->user->id;
             }
-
-            // $createdAt = \DateTime::createFromFormat('Y-m-d', $feed->date);
-            // $createdAt = $createdAt->getTimestamp();
-            // $feed->created_at = $createdAt;
 
             $feed->save();
 

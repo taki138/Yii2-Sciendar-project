@@ -1,10 +1,13 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+
+$this->title = 'Feedback';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php foreach($feeds as $feed): ?>
-		
+
 		<div class="feed">
 			<h4><?=$feed->user ? $feed->user->username : 'Anonimus'?> <span class="text-muted"><?=date('Y-m-d H:i:s', $feed->created_at) ?></span></h4>
 			<p><?=$feed->text?></p>
