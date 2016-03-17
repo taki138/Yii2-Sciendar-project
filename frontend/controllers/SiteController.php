@@ -28,7 +28,14 @@ class SiteController extends Controller
 
     public function actionArticle()
     {
-        return $this->render('article');
+        $articleExample = new Article();
+
+        $article = Article::find()->all();
+        // return $this->render('article');
+        return $this->render('article', [
+            'articles' => $article,
+            'article' => $articleExample,
+        ]);
     }
 
     public function actionFeedback()
