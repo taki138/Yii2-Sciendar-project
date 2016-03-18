@@ -24,10 +24,10 @@ class Feedback extends ActiveRecord
 		return '{{%feedback}}';
 	}
 
-/*	
+/*
 	$myTimestamp = new TimestampBehavior();
 	$myTimestamp->updatedAtAttribute = null;
-	
+
 	$myTimestamp = Yii::createObject('', [
 		'updatedAtAttribute' => null
 	]);

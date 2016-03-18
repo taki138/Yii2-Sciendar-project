@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             'text:ntext',
+            'rating',
             [
                 'class' => '\kartik\grid\DataColumn',
                 'attribute'=>'createdAt',
@@ -56,6 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]
                 ],
             ],
+
            /* [
                 'attribute' => 'createdAt',
                 'value' => function($model) {

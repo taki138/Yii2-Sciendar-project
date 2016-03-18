@@ -9,11 +9,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php foreach($feeds as $feed): ?>
 
 		<div class="feed">
-			<h4><?=$feed->user ? $feed->user->username : 'Anonimus'?> <span class="text-muted"><?=date('Y-m-d H:i:s', $feed->created_at) ?></span></h4>
+			<h4><?=$feed->user ? $feed->user->username : 'Anonimus'?> <span class="text-muted small"><?=date('d-m-Y H:i:s', $feed->created_at) ?></span></h4>
 			<p><?=$feed->text?></p>
 			<div class="rating">
 					<?php for ($i = 1; $i < $feed->rating; $i++ ): ?>
-						<span>*</span>
+						<span class="glyphicon glyphicon-star-empty"></span>
 					<?php endfor ?>
 					<?php /* =$feed->rating */ ?>
 			</div>
